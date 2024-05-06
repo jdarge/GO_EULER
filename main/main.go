@@ -65,6 +65,7 @@ func rho_g(input, n int) int {
 	return ((input*input + 1) % n)
 }
 
+// https://en.wikipedia.org/wiki/Pollard's_rho_algorithm
 func rho (n int) int {
 	var x,y,d = 2,2,1
 
