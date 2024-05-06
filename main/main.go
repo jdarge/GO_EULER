@@ -2,13 +2,21 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
+
+func problem6() {
+	
+}
 
 func main() {
 
-	problem1()
-	problem2()
-	problem3()
+	//problem1()
+	//problem2()
+	//problem3()
+	//problem4()
+	//problem5()
+	problem6()
 
 }
 
@@ -45,6 +53,39 @@ func problem2() {
 	fmt.Printf("%v\n", sum)
 }
 
+func problem3() {
+
+	var factors, index = primeFactors(600851475143)
+	var largestFactor = factors[index-1]
+	fmt.Printf("%d", largestFactor)
+}
+
+func problem4() {
+	var answer = 0
+	for i := 999; i > 99; i-- {
+		for j := 999; j > 99; j-- {
+			x := i * j
+			if x < answer {
+				break
+			}
+			a := strconv.Itoa(x)
+			b := reverseString(a)
+			if a == b && x > answer {
+				answer = x
+			}
+		}
+	}
+	fmt.Printf("%d\n", answer)
+}
+
+func problem5() {
+	answer := 1
+	for i := 1; i <= 20; i++ {
+		answer = lcm(answer, i)
+	}
+	fmt.Printf("%d\n", answer)
+}
+
 func abs(n int) int { // absolute value |x|
 	if n >= 0 {
 		return n
@@ -57,6 +98,10 @@ func gcd(a, b int) int { // greatest common divisor
 		a, b = b, a%b
 	}
 	return a
+}
+
+func lcm(a, b int) int { // least common multiple
+	return a * b / gcd(a, b)
 }
 
 func rhoG(input, n int) int {
@@ -92,9 +137,9 @@ func primeFactors(n int) ([]int, int) {
 	return factors, index
 }
 
-func problem3() {
-
-	var factors, index = primeFactors(600851475143)
-	var largestFactor = factors[index-1]
-	fmt.Printf("%d", largestFactor)
+func reverseString(s string) (r string) {
+	for _, v := range s {
+		r = string(v) + r
+	}
+	return
 }
