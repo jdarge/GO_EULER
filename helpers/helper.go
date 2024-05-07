@@ -58,10 +58,10 @@ func ReverseString(s string) (r string) {
 	return
 }
 
-func IsPerfectSquare (n int) bool {
+func IsPerfectSquare(n int) bool {
 
-	d,i := 1, n
-	for ; i > 0; {
+	d, i := 1, n
+	for i > 0 {
 		i -= d
 		d += 2
 	}

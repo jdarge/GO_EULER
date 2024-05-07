@@ -7,6 +7,7 @@ import (
 )
 
 var wg sync.WaitGroup
+
 // var mutex sync.Mutex
 
 func CollatzChain(n int) int {
