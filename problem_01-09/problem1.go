@@ -1,9 +1,8 @@
 package problem0109
 
-import "fmt"
+func Problem1() int {
 
-func Problem1() {
-	var sum = 0
+	sum := 0
 
 	for i := 1; i < 1000; i++ {
 
@@ -12,5 +11,5 @@ func Problem1() {
 		}
 	}
 
-	fmt.Printf("Problem 1:\t%v\n", sum)
+	return sum
 }

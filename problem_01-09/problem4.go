@@ -2,12 +2,13 @@ package problem0109
 
 import (
 	helper "euler/helpers"
-	"fmt"
 	"strconv"
 )
 
-func Problem4() {
+func Problem4() int {
+
 	var answer = 0
+
 	for i := 999; i > 99; i-- {
 		for j := 999; j > 99; j-- {
 			x := i * j
@@ -21,5 +22,6 @@ func Problem4() {
 			}
 		}
 	}
-	fmt.Printf("Problem 4:\t%d\n", answer)
+
+	return answer
 }

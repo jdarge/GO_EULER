@@ -1,9 +1,5 @@
 package problem0109
 
-import (
-	"fmt"
-)
-
 // Problem9
 /*
 MAX = 3 + 4 + 5 = 12
@@ -11,9 +7,11 @@ MAX = 3 + 4 + 5 = 12
 if(9 + 16 == 25)
     answer = 3 * 4 * 5
 */
-func Problem9() {
+func Problem9() int {
+
 	MAX := 1000
 	answer := 0
+
 	for i := 1; i < MAX; i++ {
 		for j := i + 1; j < MAX; j++ {
 			k := MAX - i - j        // ensures that i + j + k = 1000
@@ -23,11 +21,12 @@ func Problem9() {
 			}
 		}
 	}
-	fmt.Printf("Problem 9:\t%d\n", answer)
+
+	return answer
 }
 
 /*
-func problem9_original() {
+func Problem9_original() {
 	answer := 0
 	for i:=1; i < 1000; i++ {
 		for j:=i+1; j < 1000; j++ {
