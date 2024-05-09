@@ -42,6 +42,7 @@ func problem1019_test() {
 		name    string
 		problem func() int
 	}{
+		{"Problem 10", problem1019.Problem10},
 		{"Problem 14", problem1019.Problem14},
 		{"Problem 15", problem1019.Problem15},
 	}
