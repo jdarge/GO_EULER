@@ -5,6 +5,7 @@ import (
 )
 
 func Problem6() int {
+
 	var sos, son, answer int
 
 	n := 100
