@@ -1,7 +1,7 @@
 package problem1019
 
 import (
-	helper "euler/helpers"
+	"euler/helper"
 	"runtime"
 	"sync"
 )

@@ -1,7 +1,7 @@
 package problem0109
 
 import (
-	helper "euler/helpers"
+	"euler/helper"
 )
 
 func Problem6() int {

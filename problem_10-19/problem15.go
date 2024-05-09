@@ -1,6 +1,6 @@
 package problem1019
 
-import helper "euler/helpers"
+import "euler/helper"
 
 /*
 
