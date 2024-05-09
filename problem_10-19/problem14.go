@@ -1,7 +1,7 @@
 package problem1019
 
 import (
-	"fmt"
+	helper "euler/helpers"
 	"runtime"
 	"sync"
 )
@@ -10,36 +10,8 @@ var wg sync.WaitGroup
 
 // var mutex sync.Mutex
 
-func CollatzChain(n int) int {
+func Problem14() int {
 
-	length := 1
-
-	for n > 1 {
-		if n%2 == 0 {
-			n = n / 2
-		} else {
-			n = 3*n + 1
-		}
-		length++
-	}
-
-	return length
-}
-
-func FindLongestCollatzChain(start, end int) (int, int) {
-
-	length, val := 0, 0
-	for i := start; i < end; i++ {
-		c := CollatzChain(i)
-		if c > length {
-			length = c
-			val = i
-		}
-	}
-	return length, val
-}
-
-func Problem14() {
 	numWorkers := runtime.NumCPU()
 	chunkSize := 1_000_000 / numWorkers
 
@@ -52,7 +24,7 @@ func Problem14() {
 	// give each thread a range to run FindLongestCollatzChain()
 	for i := 0; i < numWorkers; i++ {
 		go func(start, end int) {
-			length, number := FindLongestCollatzChain(start, end)
+			length, number := helper.FindLongestCollatzChain(start, end)
 			results <- struct {
 				length int
 				number int
@@ -73,7 +45,7 @@ func Problem14() {
 		}
 	}
 
-	fmt.Printf("Problem 14:\t%d\n", longestNum)
+	return longestNum
 }
 
 /*

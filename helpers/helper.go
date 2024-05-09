@@ -68,3 +68,60 @@ func IsPerfectSquare(n int) bool {
 
 	return i == 0
 }
+
+func SumOfNumbers(n int) int {
+	// https://en.wikipedia.org/wiki/Triangular_number#Formula
+	return n * (n + 1) / 2
+	// return BinomialCoefficient(n+1, 2)
+}
+
+func SumOfSquares(n int) int {
+	// https://www.cuemath.com/algebra/sum-of-squares/
+	return n * (n + 1) * (2*n + 1) / 6
+}
+
+func CollatzChain(n int) int {
+
+	length := 1
+
+	for n > 1 {
+		if n%2 == 0 {
+			n = n / 2
+		} else {
+			n = 3*n + 1
+		}
+		length++
+	}
+
+	return length
+}
+
+func FindLongestCollatzChain(start, end int) (int, int) {
+
+	length, val := 0, 0
+
+	for i := start; i < end; i++ {
+		c := CollatzChain(i)
+		if c > length {
+			length = c
+			val = i
+		}
+	}
+
+	return length, val
+}
+
+func BinomialCoefficient(c int, k int) int {
+
+	answer := 1
+
+	if k > c/2 {
+		k = c - k
+	}
+
+	for i := 1; i <= k; i++ {
+		answer = (c - k + i) * answer / i
+	}
+
+	return answer
+}
