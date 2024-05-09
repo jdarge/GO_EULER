@@ -2,19 +2,16 @@ package problem0109
 
 import (
 	helper "euler/helpers"
-	"fmt"
 )
 
 func Problem6() int {
-	var tetrahedral, triangle, answer int
+	var sos, son, answer int
 
 	n := 100
 
-	triangle = helper.SumOfNumbers(n)
-	tetrahedral = helper.SumOfSquares(n)
-	answer = (triangle * triangle) - tetrahedral
-
-	fmt.Printf("%v::\n%v::\n", triangle, tetrahedral)
+	son = helper.SumOfNumbers(n)
+	sos = helper.SumOfSquares(n)
+	answer = (son * son) - sos
 
 	return answer
 }
