@@ -25,6 +25,7 @@ func problem0109_test() {
 		{"Problem 4", problem0109.Problem4},
 		{"Problem 5", problem0109.Problem5},
 		{"Problem 6", problem0109.Problem6},
+		{"Problem 7", problem0109.Problem7},
 		{"Problem 9", problem0109.Problem9},
 	}
 
