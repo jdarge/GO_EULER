@@ -26,7 +26,7 @@ func RhoG(input, n int) int {
 	return (input*input + 1) % n
 }
 
-// https://en.wikipedia.org/wiki/Pollard's_rho_algorithm
+// Rho https://en.wikipedia.org/wiki/Pollard's_rho_algorithm
 func Rho(n int) int {
 	var x, y, d = 2, 2, 1
 
@@ -73,14 +73,14 @@ func IsPerfectSquare(n int) bool {
 	return i == 0
 }
 
-// https://en.wikipedia.org/wiki/Triangular_number#Formula
+// SumOfNumbers https://en.wikipedia.org/wiki/Triangular_number#Formula
 func SumOfNumbers(n int) int {
 
 	return n * (n + 1) / 2
 	// return BinomialCoefficient(n+1, 2)
 }
 
-// https://www.cuemath.com/algebra/sum-of-squares/
+// SumOfSquares https://www.cuemath.com/algebra/sum-of-squares/
 func SumOfSquares(n int) int {
 
 	return n * (n + 1) * (2*n + 1) / 6
@@ -167,7 +167,7 @@ func NthPrime(n int) int {
 	return primes[n-1]
 }
 
-// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+// SieveOfEratosthenes https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 func SieveOfEratosthenes(limit int) []int {
 
 	sieve := make([]bool, limit+1)
