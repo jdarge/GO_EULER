@@ -71,14 +71,14 @@ func IsPerfectSquare(n int) bool {
 
 // https://en.wikipedia.org/wiki/Triangular_number#Formula
 func SumOfNumbers(n int) int {
-	
+
 	return n * (n + 1) / 2
 	// return BinomialCoefficient(n+1, 2)
 }
 
 // https://www.cuemath.com/algebra/sum-of-squares/
 func SumOfSquares(n int) int {
-	
+
 	return n * (n + 1) * (2*n + 1) / 6
 }
 
@@ -139,48 +139,57 @@ func UnpreciseSqrt(n int) (result int) {
 	}
 
 	left, right := 1, n
-    result = 0
+	result = 0
 
-    for left <= right {
-        mid := left + (right-left)/2
-        if mid*mid == n {
-            return mid
-        } else if mid*mid < n {
-            left = mid + 1
-            result = mid
-        } else {
-            right = mid - 1
-        }
-    }
+	for left <= right {
+		mid := left + (right-left)/2
+		if mid*mid == n {
+			return mid
+		} else if mid*mid < n {
+			left = mid + 1
+			result = mid
+		} else {
+			right = mid - 1
+		}
+	}
 
 	return
 }
 
 func NthPrime(n int) int {
 
-    primes := SieveOfEratosthenes(n*n)
+	primes := SieveOfEratosthenes(n * n)
 
-    if n > len(primes) {
-        return -1
-    }
-
-    return primes[n-1]
+	return primes[n-1]
 }
 
 // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 func SieveOfEratosthenes(limit int) []int {
-	
-	sieve := make([]bool, limit+1)
-    primes := make([]int, 0)
 
-	for i := 2; i <= limit; i++ {
-        if !sieve[i] {
-            primes = append(primes, i)
-            for j := i * i; j <= limit; j += i {
-                sieve[j] = true
-            }
-        }
-    }
+	sieve := make([]bool, limit+1)
+	primes := make([]int, 0, limit/2)
+
+	for i := 2 * 2; i <= limit; i += 2 { // i = 2 was taken out so we can improve step performance
+		sieve[i] = true // in the bulk of the loop by using j += 2*i
+	}
+	for i := 3; i <= limit; i++ {
+		if !sieve[i] {
+			primes = append(primes, i)
+			for j := i * i; j <= limit; j += 2 * i {
+				sieve[j] = true
+			}
+		}
+	}
+	/*
+	   	for i := 2; i <= limit; i++ {
+	           if !sieve[i] {
+	               primes = append(primes, i)
+	               for j := i*i; j <= limit; j += i {
+	                   sieve[j] = true
+	               }
+	           }
+	       }
+	*/
 
 	return primes
 }
