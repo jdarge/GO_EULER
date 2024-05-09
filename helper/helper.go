@@ -173,9 +173,13 @@ func SieveOfEratosthenes(limit int) []int {
 	sieve := make([]bool, limit+1)
 	primes := make([]int, 0, limit/2)
 
-	for i := 2 * 2; i <= limit; i += 2 { // i = 2 was taken out so we can improve step performance
-		sieve[i] = true // in the bulk of the loop by using j += 2*i
+	// i = 2 was taken out so we can improve step performance
+	// in the bulk of the loop by using j += 2*i
+	primes = append(primes, 2)
+	for i := 2 * 2; i <= limit; i += 2 {
+		sieve[i] = true
 	}
+
 	for i := 3; i <= limit; i++ {
 		if !sieve[i] {
 			primes = append(primes, i)
