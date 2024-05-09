@@ -1,5 +1,9 @@
 package helper
 
+import (
+	"strconv"
+)
+
 func ABS(n int) int { // absolute value |x|
 	if n >= 0 {
 		return n
@@ -192,4 +196,37 @@ func SieveOfEratosthenes(limit int) []int {
 	*/
 
 	return primes
+}
+
+func ConvertStrTo1DIntArray(str string) []int {
+
+	var numbers []int
+
+	for _, digit := range str {
+		num, err := strconv.Atoi(string(digit))
+		if err != nil {
+			return nil
+		}
+		numbers = append(numbers, num)
+	}
+
+	return numbers
+}
+
+func LargestProductInSeries(numbers []int, size int) int {
+
+	largestProduct := 0
+	var tmp int
+
+	for i := 0; i+size < len(numbers); i++ {
+		tmp = 1
+		for j := i; j < i+size; j++ {
+			tmp *= numbers[j]
+		}
+		if tmp > largestProduct {
+			largestProduct = tmp
+		}
+	}
+
+	return largestProduct
 }
