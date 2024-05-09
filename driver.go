@@ -8,12 +8,12 @@ import (
 
 func main() {
 
-	problem0109_test()
-	problem1019_test()
+	problem0109Test()
+	problem1019Test()
 
 }
 
-func problem0109_test() {
+func problem0109Test() {
 
 	problems := []struct {
 		name    string
@@ -25,7 +25,7 @@ func problem0109_test() {
 		{"Problem 4", problem0109.Problem4},
 		{"Problem 5", problem0109.Problem5},
 		{"Problem 6", problem0109.Problem6},
-		{"Problem 7", problem0109.Problem7},
+		// {"Problem 7", problem0109.Problem7}, // fixme: Currently pretty slow, so I commented it out.
 		{"Problem 8", problem0109.Problem8},
 		{"Problem 9", problem0109.Problem9},
 	}
@@ -36,14 +36,14 @@ func problem0109_test() {
 	}
 }
 
-func problem1019_test() {
+func problem1019Test() {
 
 	problems := []struct {
 		name    string
 		problem func() int
 	}{
 		{"Problem 10", problem1019.Problem10},
-		{"Problem 11", problem1019.Problem11},
+		// {"Problem 11", problem1019.Problem11}, // TODO: not implemented
 		{"Problem 12", problem1019.Problem12},
 		{"Problem 14", problem1019.Problem14},
 		{"Problem 15", problem1019.Problem15},

@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"math"
 	"strconv"
 )
 
@@ -233,4 +234,23 @@ func LargestProductInSeries(numbers []int, size int) int {
 	}
 
 	return largestProduct
+}
+
+func DivisorsOfNumber(n int) []int {
+
+	var divisors []int
+
+	sqrtN := IntSqrt(n)
+	for i := 1; i <= sqrtN; i++ {
+		if n%i == 0 {
+			divisors = append(divisors, i)
+			divisors = append(divisors, n/i) // Source of logic: https://stackoverflow.com/a/26753963
+		}
+	}
+
+	return divisors
+}
+
+func IntSqrt(n int) int {
+	return int(math.Sqrt(float64(n)))
 }
