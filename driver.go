@@ -48,6 +48,7 @@ func problem1019Test() {
 		{"Problem 13", problem1019.Problem13},
 		{"Problem 14", problem1019.Problem14},
 		{"Problem 15", problem1019.Problem15},
+		{"Problem 16", problem1019.Problem16},
 	}
 
 	for _, problem := range problems {
