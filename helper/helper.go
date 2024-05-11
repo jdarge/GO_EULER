@@ -247,11 +247,43 @@ func DivisorsOfNumber(n int) []int {
 	for i := 1; i <= sqrtN; i++ {
 		if n%i == 0 {
 			divisors = append(divisors, i)
-			divisors = append(divisors, n/i) // Source of logic: https://stackoverflow.com/a/26753963
+			if i != n/i {
+				divisors = append(divisors, n/i) // Source of logic: https://stackoverflow.com/a/26753963
+			}
 		}
 	}
 
 	return divisors
+}
+
+func CountDivisors(n int) int {
+
+	divisors := 1
+	sqrtN := IntSqrt(n)
+	for i := 2; i <= sqrtN; i++ {
+		exponent := 0
+		for n%i == 0 {
+			n /= i
+			exponent++
+		}
+		if exponent > 0 {
+			divisors *= exponent + 1
+		}
+	}
+	if n > 1 {
+		divisors *= 2
+	}
+	return divisors
+}
+
+func FindNumberWithNDivisors(divisorCount int) int {
+	var n int
+	for i := 1; ; i++ {
+		n = SumOfNumbers(i)
+		if CountDivisors(n) > divisorCount {
+			return n
+		}
+	}
 }
 
 func IntSqrt(n int) int {
