@@ -43,7 +43,7 @@ func problem1019Test() {
 		problem func() int
 	}{
 		{"Problem 10", problem1019.Problem10},
-		// {"Problem 11", problem1019.Problem11}, // TODO: not implemented
+		{"Problem 11", problem1019.Problem11}, // TODO: not implemented
 		{"Problem 12", problem1019.Problem12},
 		{"Problem 13", problem1019.Problem13},
 		{"Problem 14", problem1019.Problem14},

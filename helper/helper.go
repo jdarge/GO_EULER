@@ -1,7 +1,10 @@
 package helper
 
 import (
+	"bufio"
+	"log"
 	"math"
+	"os"
 	"strconv"
 )
 
@@ -253,4 +256,79 @@ func DivisorsOfNumber(n int) []int {
 
 func IntSqrt(n int) int {
 	return int(math.Sqrt(float64(n)))
+}
+
+// ReadFileLBL reads a file line by line and returns the resulting string array.
+func ReadFileLBL(file string) []string {
+
+	// taken from https://gosamples.dev/read-file w/ extra error handling implemented
+
+	f, err := os.Open(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func(f *os.File) {
+		err := f.Close()
+		if err != nil {
+
+		}
+	}(f)
+
+	var list []string
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		line := scanner.Text()
+		list = append(list, line)
+	}
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+
+	return list
+}
+
+// StripStringToFirstN // TODO
+func StripStringToFirstN(s []string, n int) []string {
+
+	var list []string
+
+	for i := 0; i < len(s); i++ {
+		line := s[i]
+		lastN := line[:n]
+		list = append(list, lastN)
+	}
+
+	return list
+}
+
+// StringArrayToIntArray // TODO
+func StringArrayToIntArray(list []string) []int {
+
+	intList := make([]int, len(list))
+	for i, str := range list {
+		num, _ := strconv.Atoi(str)
+		intList[i] = num
+	}
+
+	return intList
+}
+
+// SumIntArray returns the sum of each value inside an integer array.
+func SumIntArray(list []int) int {
+
+	sum := 0
+	for _, num := range list {
+		sum += num
+	}
+	return sum
+}
+
+// NLengthMSBInt truncates an integer to a specified size by removing values from the LSB.
+func NLengthMSBInt(sum, size int) int {
+
+	sumStr := strconv.Itoa(sum)
+	sumStr = sumStr[:size]
+	truncatedSum, _ := strconv.Atoi(sumStr)
+
+	return truncatedSum
 }
