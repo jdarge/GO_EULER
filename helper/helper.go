@@ -332,3 +332,14 @@ func NLengthMSBInt(sum, size int) int {
 
 	return truncatedSum
 }
+
+// SumStringDigits takes in a string and adds up each character as if it were a number.
+func SumStringDigits(result string) int {
+
+	sum := 0
+	for _, digit := range result {
+		n := int(digit - '0')
+		sum += n
+	}
+	return sum
+}
